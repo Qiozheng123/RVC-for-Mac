@@ -2,42 +2,34 @@
 
 本项目是一个经过深度修改的RVC整合包，旨在为 **Apple Silicon (M1/M2/M3/M4等) Mac** 用户提供一个“开箱即用”的稳定推理体验。
 
-原始整合包的详细说明请参见 `README_original.md` 文件。
+原始整合包的详细说明请参见 `README原作者.md` 文件。
+
+---
 
 ## 快速上手指南
 
 ### 步骤一：配置环境 (首次使用，仅需一次)
-
-1.  **下载本项目**
-    *   点击此页面右上角的 `Code` -> `Download ZIP`，并解压。
-    *   或者，使用Git克隆：`git clone https://github.com/Qiozheng123/RVC-for-Mac.git`
-
-2.  **运行“一键配置环境”脚本**
+1.  **运行“一键配置环境”脚本**
     *   进入您下载的项目文件夹。
     *   双击运行 `一键配置环境.command`。
     *   脚本会自动检查并引导您完成所有配置。请根据终端窗口的中文提示进行操作。
 
 ### 步骤二：日常使用
-
-1.  **放置您自己的模型**
-    *   将您训练好的 `.pth` 模型文件，放入 `assets/weights` 文件夹。
-    *   将您生成的 `.index` 特征索引文件，放入 `logs/[您的模型名]` 文件夹下（例如 `logs/MyVoice/added_IVF256_Flat_MyVoice.index`）。
-
-2.  **双击 `一键启动.command`**
+1.  **双击 `一键启动.command`**
     *   **首次运行**：脚本会自动下载所有必需的预训练模型，请耐心等待。
     *   **日常运行**：模型下载完成后，启动速度会非常快。
 
-3.  **开始推理**
-    *   在浏览器中打开终端提示的网址 (如 `http://0.0.0.0:7865`)。
-    *   在网页上选择您的模型和索引，上传音频，点击“转换”。
+2.  **根据原作者的使用教程逐一操作**
+    *   原作者使用教程链接：https://www.yuque.com/baicaigongchang1145haoyuangong/imh23d。
 
 ## ⚠️ **如何获取您的成果** ⚠️
 
 *   **请无视网页上可能弹出的“Error”！** 这是一个已知的前端显示BUG。只要终端窗口没有崩溃退出，就代表程序正在正常计算。
 
-*   **请耐心等待！** 因为我们使用CPU计算，速度会稍慢。点击“转换”后，请给程序 **1-3分钟** 的处理时间。
+*   **请耐心等待！** 因为我们使用CPU计算，速度会稍慢。点击”模型推理“或“转换”后，请给程序一定的处理时间。
+*   **预估时间！** 我自己使用M4 Pro芯片 48gb内存，在推理模型时候把size拉满到40，依旧需要13分钟左右一轮。所以点击训练后终端出现不动的情况不是卡死，请给它点时间。
 
-*   **您的成果在这里！** 等待片刻后，请直接到项目文件夹下的 **`my_rvc_outputs`** 文件夹中寻找您转换好的 `.wav` 音频文件！
+*   **您的成果在这里！** 在点击”转换“后，等待片刻，请直接到项目文件夹下的 **`my_rvc_outputs`** 文件夹中寻找您转换好的 `.wav` 音频文件！
 
 ## 许可证 (License)
 
@@ -47,3 +39,46 @@
 
 *   RVC-Project 的所有开发者
 *   [原始整合包作者]
+
+---
+---
+
+# RVC for Apple Silicon (M-series) Mac - Easy & Stable Edition
+
+This project is a heavily modified RVC integration package, designed to provide a truly "out-of-the-box" and stable inference experience for **Apple Silicon (M1/M2/M3/M4, etc.) Mac** users.
+
+For a detailed description of the original package, please refer to the `README_original.md` file.
+
+## Quick Start Guide
+
+### Step 1: Environment Setup (First-time use only)
+1.  **Run the "One-Click Environment Setup" Script**
+    *   Navigate to the project folder you downloaded.
+    *   Double-click `一键配置环境.command` to run it.
+    *   The script will automatically check and guide you through the entire setup process. Please follow the instructions in the terminal window.
+
+### Step 2: Daily Use
+1.  **Double-click `一键启动.command`**
+    *   **On the first run**: The script will automatically download all necessary pre-trained models. Please be patient.
+    *   **For daily runs**: Once the models are downloaded, the startup will be very fast.
+
+2.  **Follow the Original Author's Tutorial for Operations**
+    *   Original Author's Tutorial Link (in Chinese): https://www.yuque.com/baicaigongchang1145haoyuangong/imh23d
+
+## ⚠️ **How to Get Your Results** ⚠️
+
+*   **Please IGNORE any "Error" messages that may appear on the web page!** This is a known front-end display bug. As long as the terminal window has not crashed, it means the program is processing correctly in the background.
+
+*   **Please be patient!** We are using the CPU for computation, which is slower than a GPU. After clicking "Infer/Convert," please give the program some time to process.
+*   **Time Estimation!** On my M4 Pro chip with 48GB of RAM, a single round of inference with the chunk size maxed out at 40 still takes about **13 minutes**. If the terminal seems unresponsive after you start a task, it's not frozen—it's working hard. Please give it time.
+
+*   **Your results are here!** After clicking "Convert" and waiting for a while, please navigate to the **`my_rvc_outputs`** folder within the project directory to find your successfully converted `.wav` audio files!
+
+## License
+
+The original scripts and code modifications in this repository are licensed under the [MIT License](LICENSE). Other code and components from the original integration package are subject to their original licenses.
+
+## Acknowledgements
+
+*   All developers of the RVC-Project
+*   The author of the original integration package
