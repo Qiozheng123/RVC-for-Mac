@@ -52,7 +52,8 @@
 ### 步骤二：日常使用
 
 1.  **双击 `一键启动.command`**
-    *   **首次运行**：脚本会自动下载所有必需的预训练模型，请耐心等待。
+    *   **⚠️ 国内用户网络建议**: 本项目首次运行时需要从国外服务器(Hugging Face)下载大量模型文件。**强烈建议您开启全局代理（梯子）**，否则极易因网络问题导致下载失败。
+    *   **首次运行**：脚本会自动下载所有必需的预训练模型，请耐心等待。**如果中途因网络问题中断，请直接关闭终端窗口，然后重新双击`一键启动.command`**，脚本会自动继续下载未完成的部分。
     *   **日常运行**：模型下载完成后，启动速度会非常快。
 
 2.  **根据原作者的使用教程逐一操作**
@@ -128,7 +129,8 @@ If the "One-Click Environment Setup" script fails and displays a `CondaToSNonUse
 ### Step 2: Daily Use
 
 1.  **Double-click `一键启动.command`**
-    *   **On the first run**: The script will automatically download all necessary pre-trained models. Please be patient.
+    *   **⚠️ Network Recommendation**: On its first run, this project needs to download large model files from international servers (Hugging Face). It is **highly recommended to use a global VPN or proxy** to avoid network-related failures.
+    *   **On the first run**: The script will automatically download all necessary pre-trained models. Please be patient. **If the download is interrupted by network issues, simply close the terminal window and double-click `一键启动.command` again.** The script is smart enough to resume downloading the remaining files.
     *   **For daily runs**: Once the models are downloaded, the startup will be very fast.
 
 2.  **Follow the Original Author's Tutorial for Operations**
@@ -136,13 +138,10 @@ If the "One-Click Environment Setup" script fails and displays a `CondaToSNonUse
 
 ## ⚠️ **How to Get Your Results** ⚠️
 
-*   **Please IGNORE any "Error" messages that may appear on the web page!** This is a known front-end display bug. As long as the terminal window has not crashed, it means the program is processing correctly in the background.
-
-*   **Please be patient!** We are using the CPU for computation, which is slower than a GPU. After clicking "Infer/Convert," please give the program some time to process.
-*   **Time Estimation!** On my M4 Pro chip with 48GB of RAM, a single round of inference with the chunk size maxed out at 40 still takes about **13 minutes**. If the terminal seems unresponsive after you start a task, it's not frozen—it's working hard. Please give it time.
-
-*   **Your results are here!** After clicking "Convert" and waiting for a while, please navigate to the **`my_rvc_outputs`** folder within the project directory to find your successfully converted `.wav` audio files!
+*   **Please IGNORE any "Error" messages that may appear on the web page!** This is a known front-end display bug.
+*   **Please be patient!** CPU inference takes time (it can take around 13 minutes on an M4 Pro). As long as the terminal has not crashed, the program is working correctly.
+*   **Your results are in the `my_rvc_outputs` folder!**
 
 ## License & Acknowledgements
 
-The original scripts and code modifications in this repository are licensed under the [MIT License](LICENSE). We thank all developers of the RVC-Project and the author of the original integration package.
+The original modifications in this repository are licensed under the [MIT License](LICENSE). We thank all developers of the RVC-Project and the author of the original integration package.
