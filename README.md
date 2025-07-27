@@ -8,30 +8,49 @@
 
 ## 快速上手指南
 
-### 步骤一：配置环境 (首次使用，仅需一次)
-1.  **‼️ 授予脚本运行权限 (关键一步)**
-    *   由于macOS的安全机制，您需要手动为我们的自动化脚本授予“执行”权限。**此操作仅需进行一次。**
-    *   **方法A (推荐，最简单)：拖拽法**
-        1.  打开“**终端**” (Terminal) 应用。
-        2.  输入 `chmod +x ` (注意 `+x` 后面有一个**空格**)，**但先不要按回车**。
-        3.  从“访达”(Finder)里，将 `一键配置环境.command` 文件**拖拽**到终端窗口里。
-        4.  按下**回车键**。
-        5.  再次输入 `chmod +x ` (同样，`+x` 后面有**空格**)。
-        6.  这次，将 `一键启动.command` 文件**拖拽**到终端窗口里。
-        7.  按下**回车键**。
-    *   **方法B (备用)：命令法**
-        1.  打开“终端”(Terminal) 应用。
-        2.  输入 `cd ` (注意 `cd` 后面有一个**空格**)，然后将您的 `RVC-for-Mac` 文件夹**拖拽**到终端窗口里，再按**回车键**。
-        3.  复制并粘贴以下整行命令，然后按**回车键**：
-            ```bash
-            chmod +x *.command
-            ```
+### ‼️ 步骤零：安装核心开发工具 (在任何新Mac上，仅需执行一次)
+
+在开始之前，您的Mac需要安装苹果官方的命令行开发工具，这是所有后续步骤的基础。
+
+1.  打开“**终端**” (Terminal) 应用。
+2.  **复制并粘贴**以下命令，然后按**回车键**：
+    ```bash
+    xcode-select --install
+    ```
+3.  在弹出的窗口中，点击 **“安装” (Install)**，并同意许可协议。
+4.  请耐心等待安装完成。如果提示“已安装”，则可直接进行下一步。
+
+---
+
+### 步骤一：配置项目环境 (完成“步骤零”后，仅需一次)
+
+1.  **授予脚本运行权限**
+    *   由于macOS的安全机制，您需要为自动化脚本授予“执行”权限。
+    *   打开“**终端**”，输入 `chmod +x ` (注意末尾有空格)，然后将 `一键配置环境.command` 和 `一键启动.command` 依次拖入终端并按回车。
 
 2.  **运行“一键配置环境”脚本**
-    *   现在，您可以回到“访达”，双击运行 `一键配置环境.command`。
-    *   脚本会自动检查并引导您完成所有配置。请根据终端窗口的中文提示进行操作。
+    *   **双击运行 `一键配置环境.command`**。
+    *   脚本会尝试为您完成所有配置。**如果一切顺利，您可以直接跳到“步骤二：日常使用”。**
+    *   如果脚本中途失败并提示 `CondaToSNonUserInteractiveError` 错误，请查看下面的“**故障排除**”章节来解决。
+
+### ‼️ 故障排除：解决 Conda 服务条款错误
+
+如果您在运行“一键配置环境”脚本时，终端提示 `CondaToSNonUserInteractiveError`，请按以下步骤手动同意Conda服务条款：
+
+1.  **打开“终端”应用。**
+2.  **复制并粘贴**以下命令，然后按**回车**：
+    ```bash
+    conda create -n tos_accept_test python=3.10
+    ```
+3.  **根据终端提示，完成两次确认**：
+    *   首先，当提问 `Proceed ([y]/n)?` 时，请直接按 **回车键**。
+    *   然后，当提问 `Do you accept the terms? [yes|no]` 时，请输入 **`yes`** ，然后按**回车键**。
+4.  **操作完成后，请重新双击运行 `一键配置环境.command` 脚本**。这次它就能顺利完成了。
+
+---
 
 ### 步骤二：日常使用
+
 1.  **双击 `一键启动.command`**
     *   **首次运行**：脚本会自动下载所有必需的预训练模型，请耐心等待。
     *   **日常运行**：模型下载完成后，启动速度会非常快。
@@ -48,14 +67,9 @@
 
 *   **您的成果在这里！** 在点击”转换“后，等待片刻，请直接到项目文件夹下的 **`my_rvc_outputs`** 文件夹中寻找您转换好的 `.wav` 音频文件！
 
-## 许可证 (License)
+## 许可证 (License) & 致谢
 
-本仓库中的原创脚本及代码修改采用 [MIT 许可证](LICENSE)。原始整合包中的其他代码及组件，遵循其原有的许可证。
-
-## 致谢
-
-*   RVC-Project 的所有开发者
-*   [原始整合包作者]
+本仓库中的原创脚本及代码修改采用 [MIT 许可证](LICENSE)。感谢 RVC-Project 的所有开发者和原始整合包作者。
 
 ---
 ---
@@ -70,30 +84,49 @@ For a detailed description of the original package, please refer to the `README_
 
 ## Quick Start Guide
 
-### Step 1: Environment Setup (First-time use only)
-1.  **‼️ Grant Script Execution Permissions (Crucial Step)**
-    *   Due to macOS security mechanisms, you need to manually grant "execute" permissions to our automation scripts. **This operation is required only once.**
-    *   **Method A (Recommended, Easiest): Drag-and-Drop Method**
-        1.  Open the "**Terminal**" application.
-        2.  Type `chmod +x ` (note the **space** after `+x`), **but do not press Enter yet**.
-        3.  From "Finder," **drag and drop** the `一键配置环境.command` file into the Terminal window.
-        4.  Press **Enter**.
-        5.  Type `chmod +x ` again (again, note the **space** after `+x`).
-        6.  This time, **drag and drop** the `一键启动.command` file into the Terminal window.
-        7.  Press **Enter**.
-    *   **Method B (Alternative): Command Line Method**
-        1.  Open the "Terminal" application.
-        2.  Type `cd ` (note the **space** after `cd`), then **drag and drop** your `RVC-for-Mac` folder into the Terminal window, and press **Enter**.
-        3.  Copy and paste the entire line below, then press **Enter**:
-            ```bash
-            chmod +x *.command
-            ```
+### ‼️ Step 0: Install Core Developer Tools (Required once on any new Mac)
+
+Before you begin, your Mac needs the official Apple Command Line Tools, which are essential for all subsequent steps.
+
+1.  Open the **Terminal** application.
+2.  **Copy and paste** the following command, then press **Enter**:
+    ```bash
+    xcode-select --install
+    ```
+3.  In the pop-up window, click **"Install"** and agree to the license terms.
+4.  Please wait patiently for the installation to complete. If it says "already installed," you can proceed to the next step.
+
+---
+
+### Step 1: Configure the Project Environment (Required once after Step 0)
+
+1.  **Grant Script Execution Permissions**
+    *   Due to macOS security mechanisms, you need to grant "execute" permissions to the automation scripts.
+    *   Open **Terminal**, type `chmod +x ` (note the space at the end), then drag and drop the `一键配置环境.command` and `一键启动.command` files into the Terminal window one by one, pressing Enter after each.
 
 2.  **Run the "One-Click Environment Setup" Script**
-    *   Now, you can return to "Finder" and double-click `一键配置环境.command` to run it.
-    *   The script will automatically check and guide you through the entire setup process. Please follow the instructions in the terminal window.
+    *   **Double-click `一键配置环境.command` to run it.**
+    *   The script will attempt to complete all configurations for you. **If it finishes successfully, you can proceed directly to "Step 2: Daily Use."**
+    *   If the script fails with a `CondaToSNonUserInteractiveError` message, please see the "**Troubleshooting**" section below.
+
+### ‼️ Troubleshooting: Resolving the Conda Terms of Service Error
+
+If the "One-Click Environment Setup" script fails and displays a `CondaToSNonUserInteractiveError`, please follow these steps to manually accept the Conda Terms of Service:
+
+1.  **Open the Terminal application.**
+2.  **Copy and paste** the command below, then press **Enter**:
+    ```bash
+    conda create -n tos_accept_test python=3.10
+    ```
+3.  **Follow the prompts to confirm twice**:
+    *   First, when asked `Proceed ([y]/n)?`, simply press **Enter**.
+    *   Then, when asked `Do you accept the terms? [yes|no]`, type **`yes`** and press **Enter**.
+4.  **Once completed, please double-click and run the `一键配置环境.command` script again**. It will now complete without any issues.
+
+---
 
 ### Step 2: Daily Use
+
 1.  **Double-click `一键启动.command`**
     *   **On the first run**: The script will automatically download all necessary pre-trained models. Please be patient.
     *   **For daily runs**: Once the models are downloaded, the startup will be very fast.
@@ -110,11 +143,6 @@ For a detailed description of the original package, please refer to the `README_
 
 *   **Your results are here!** After clicking "Convert" and waiting for a while, please navigate to the **`my_rvc_outputs`** folder within the project directory to find your successfully converted `.wav` audio files!
 
-## License
+## License & Acknowledgements
 
-The original scripts and code modifications in this repository are licensed under the [MIT License](LICENSE). Other code and components from the original integration package are subject to their original licenses.
-
-## Acknowledgements
-
-*   All developers of the RVC-Project
-*   The author of the original integration package
+The original scripts and code modifications in this repository are licensed under the [MIT License](LICENSE). We thank all developers of the RVC-Project and the author of the original integration package.
