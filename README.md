@@ -66,12 +66,31 @@ This project is a heavily modified RVC integration package, designed to provide 
 
 For a detailed description of the original package, please refer to the `README_original.md` file.
 
+---
+
 ## Quick Start Guide
 
 ### Step 1: Environment Setup (First-time use only)
-1.  **Run the "One-Click Environment Setup" Script**
-    *   Navigate to the project folder you downloaded.
-    *   Double-click `一键配置环境.command` to run it.
+1.  **‼️ Grant Script Execution Permissions (Crucial Step)**
+    *   Due to macOS security mechanisms, you need to manually grant "execute" permissions to our automation scripts. **This operation is required only once.**
+    *   **Method A (Recommended, Easiest): Drag-and-Drop Method**
+        1.  Open the "**Terminal**" application.
+        2.  Type `chmod +x ` (note the **space** after `+x`), **but do not press Enter yet**.
+        3.  From "Finder," **drag and drop** the `一键配置环境.command` file into the Terminal window.
+        4.  Press **Enter**.
+        5.  Type `chmod +x ` again (again, note the **space** after `+x`).
+        6.  This time, **drag and drop** the `一键启动.command` file into the Terminal window.
+        7.  Press **Enter**.
+    *   **Method B (Alternative): Command Line Method**
+        1.  Open the "Terminal" application.
+        2.  Type `cd ` (note the **space** after `cd`), then **drag and drop** your `RVC-for-Mac` folder into the Terminal window, and press **Enter**.
+        3.  Copy and paste the entire line below, then press **Enter**:
+            ```bash
+            chmod +x *.command
+            ```
+
+2.  **Run the "One-Click Environment Setup" Script**
+    *   Now, you can return to "Finder" and double-click `一键配置环境.command` to run it.
     *   The script will automatically check and guide you through the entire setup process. Please follow the instructions in the terminal window.
 
 ### Step 2: Daily Use
